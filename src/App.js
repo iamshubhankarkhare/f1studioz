@@ -4,6 +4,7 @@ import './App.css';
 import BarChart from './charts/barChart';
 import ConnectedScatter from './charts/connectedScatter';
 import DoughnutChart from './charts/doughnutChart';
+import Test from './charts/test';
 
 const datas = [
   [10, 30, 40, 20],
@@ -14,20 +15,12 @@ var i = 0;
 
 const data2 = [
   {
-    date: '1-May-12',
-    close: 58.13,
-  },
-  {
-    date: '30-Apr-12',
-    close: 53.98,
-  },
-  {
     date: '27-Apr-12',
     close: 67,
   },
   {
     date: '26-Apr-12',
-    close: 89.7,
+    close: 89,
   },
   {
     date: '25-Apr-12',
@@ -35,39 +28,39 @@ const data2 = [
   },
   {
     date: '18-Apr-12',
-    close: 443.34,
+    close: 44,
   },
   {
     date: '17-Apr-12',
-    close: 543.7,
+    close: 54,
   },
   {
     date: '16-Apr-12',
-    close: 580.13,
+    close: 58,
   },
   {
     date: '13-Apr-12',
-    close: 605.23,
+    close: 65,
   },
   {
     date: '30-Mar-12',
-    close: 599.55,
+    close: 99,
   },
   {
     date: '29-Mar-12',
-    close: 609.86,
+    close: 60,
   },
   {
     date: '28-Mar-12',
-    close: 617.62,
+    close: 61,
   },
   {
     date: '27-Mar-12',
-    close: 614.48,
+    close: 68,
   },
   {
     date: '26-Mar-12',
-    close: 606.98,
+    close: 69,
   },
 ];
 
@@ -85,7 +78,8 @@ function App() {
         innerRadius={80}
         outerRadius={100}
       />
-      <ConnectedScatter data={data2} />
+      {/* <ConnectedScatter data={data2} /> */}
+      <Test />
     </div>
   );
 }

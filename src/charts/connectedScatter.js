@@ -91,26 +91,25 @@ function ConnectedScatter({ width, height, data }) {
       })
       .attr('fill', '#69b3a2');
 
-    var xAxis = d3.axisBottom(x).ticks(7).tickFormat(d3.timeFormat('%a'));
+    var xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat('%a'));
     var yAxis = d3.axisLeft(y).ticks(7);
 
     // Add the X Axis
     svg
       .append('g')
-      .attr('transform', `translate(${margin.right * 2},${height})`)
+      .attr('transform', `translate(${margin.right},${height + margin.bottom})`)
       .call(xAxis);
 
     // Add the Y Axis
     svg
       .append('g')
-      .attr('transform', `translate(${margin.right * 2},0)`)
+      .attr('transform', `translate(${margin.right},0)`)
       .call(yAxis);
   }, []);
 
   return (
     <>
       <svg ref={svgRef}></svg>
-      <br />
     </>
   );
 }
