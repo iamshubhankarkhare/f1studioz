@@ -10,6 +10,7 @@ function SecurityDataBlock() {
       align="center"
       justify="space-around"
       border="1px solid black"
+      borderColor="#D8D8D8"
       width="100%"
       py={[4, 8]}
     >

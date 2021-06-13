@@ -14,6 +14,7 @@ function ChartBlock(props) {
       bg="white"
       p="4"
       border="1px solid black"
+      borderColor="#D8D8D8"
       width="100%"
       height="100%"
       justify="space-between"
@@ -66,7 +67,8 @@ function ChartBlock(props) {
           </Flex>
         ))}
       </Flex>
-      <hr />
+      <Box width="100%" height="1px" bg="#0000001A" my="4"></Box>
+
       <Text color="#006BD4" my="4">
         {props.bottomText}
       </Text>

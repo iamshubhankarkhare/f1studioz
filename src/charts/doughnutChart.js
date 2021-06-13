@@ -72,7 +72,7 @@ const DoughnutChart = (props) => {
         .style('fill', 'black')
         .style('font-size', '28px')
         .style('font-weight', 'bold')
-        .attr('transform', 'translate(0,' + 10 + ')')
+        .attr('transform', 'translate(0,' + 5 + ')')
         .attr('text-anchor', 'middle')
         .html(props.data.reduce((a, b) => a + b));
 
@@ -81,7 +81,7 @@ const DoughnutChart = (props) => {
         .style('fill', 'black')
         .style('font-size', '28px')
         .style('font-weight', 'bold')
-        .attr('transform', 'translate(0,' + 40 + ')')
+        .attr('transform', 'translate(0,' + 30 + ')')
         .attr('text-anchor', 'middle')
         .html('Total');
     }

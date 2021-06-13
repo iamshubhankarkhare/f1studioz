@@ -43,10 +43,10 @@ const cs3 = [
     format: '%a',
     values: [
       { date: '2020-01-01', count: '20' },
-      { date: '2020-03-02', count: '40' },
+      { date: '2020-03-02', count: '50' },
       { date: '2020-04-03', count: '80' },
       { date: '2020-06-04', count: '30' },
-      { date: '2020-08-05', count: '50' },
+      { date: '2020-08-05', count: '20' },
     ],
   },
 ];
@@ -57,9 +57,9 @@ const cs4 = [
     values: [
       { date: '2020-01-01', count: '20' },
       { date: '2020-03-02', count: '40' },
-      { date: '2020-04-03', count: '80' },
+      { date: '2020-04-03', count: '60' },
       { date: '2020-06-04', count: '30' },
-      { date: '2020-08-05', count: '50' },
+      { date: '2020-08-05', count: '80' },
     ],
   },
 ];
@@ -70,8 +70,8 @@ const cs5 = [
     values: [
       { date: '2020-01-01', count: '20' },
       { date: '2020-03-02', count: '40' },
-      { date: '2020-04-03', count: '80' },
-      { date: '2020-06-04', count: '30' },
+      { date: '2020-04-03', count: '30' },
+      { date: '2020-06-04', count: '80' },
       { date: '2020-08-05', count: '50' },
     ],
   },
@@ -101,21 +101,21 @@ export const cs_d_block_data = [
   },
   {
     heading: 'Code Vulnerability',
-    dData: [10, 30, 40],
+    dData: [40, 20, 40],
     csData: cs4,
     bottomText:
       'The infrastructure that was down has increased by 10% since yesterday.',
   },
   {
     heading: 'Web App Vulnerability',
-    dData: [10, 30, 40],
+    dData: [20, 20, 40],
     csData: cs5,
     bottomText:
       'The infrastructure that was down has increased by 10% since yesterday.',
   },
   {
     heading: 'OSS Vulnerability',
-    dData: [10, 30, 40],
+    dData: [10, 50, 40],
     csData: cs6,
     bottomText:
       'The infrastructure that was down has increased by 10% since yesterday.',
@@ -175,16 +175,36 @@ export const doughnutBarData = [
 export const doughnutLineData = [
   {
     heading: 'Health Status',
-    doughnutData: [200, 20, 175],
+    doughnutData: [150, 120, 175],
     bottomText: '10% Increase in Critical Issues',
     colors: ['#00B69B', '#FF4333', '#FFBD35'],
     texts: ['Good', 'Warning', 'Critical'],
     doughnutChart: true,
+    middleText: true,
   },
   {
     heading: 'Critical Issue Trend ( This year )',
     ConnectedScatterData: cs1,
     bottomText: '69% Increase in Critical Issues in the last month',
+    colors: ['#006BD4', '#7972CD', '#90D4DD'],
+    texts: ['Budget', 'Spent', 'Forecast'],
+    connectedScatter: true,
+  },
+];
+
+export const barLineData = [
+  {
+    heading: 'Current Expenses',
+    barData: [200, 20, 175],
+    bottomText: 'Based on previous expenses, suggest a 10% increase',
+    colors: ['#90D4DD', '#005B9F'],
+    texts: ['Budget', 'Spent'],
+    doughnutChart: true,
+  },
+  {
+    heading: 'Cost Trend',
+    ConnectedScatterData: cs2,
+    bottomText: 'Current spending is higher than budgeted',
     colors: ['#006BD4', '#7972CD', '#90D4DD'],
     texts: ['Budget', 'Spent', 'Forecast'],
     connectedScatter: true,
