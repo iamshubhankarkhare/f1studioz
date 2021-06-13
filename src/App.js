@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as d3 from 'd3';
-import ConnectedScatter from './charts/connectedScatter';
-import DoughnutChart from './charts/doughnutChart';
-import Test from './charts/test';
+import { isMobile } from 'react-device-detect';
 import ProgressWheel from './charts/progressWheel';
 import { SimpleGrid, Grid, GridItem, Flex } from '@chakra-ui/react';
 import ChartBlock from './components/chartBlock';
@@ -15,7 +13,7 @@ import {
 } from './chartData';
 
 function App() {
-  console.log(doughnutLineData[0]);
+  console.log(doughnutBarData[0].bData);
   return (
     <>
       <Grid
@@ -28,23 +26,13 @@ function App() {
           <ChartBlock {...doughnutLineData[0]} />
         </GridItem>
 
-        <GridItem colSpan={2}>
-          <ChartBlock {...doughnutLineData[1]} />
+        <GridItem colSpan={[1, 2]}>
+          <ChartBlock {...doughnutLineData[1]} csWidth={isMobile ? 250 : 500} />
         </GridItem>
       </Grid>
       <SimpleGrid columns={[1, 1, 1, 2]} p={['8', 20]} spacing={[10, 10]}>
         {[0, 1].map((el) => (
-          <ChartBlock
-            heading={doughnutBarData[el].heading}
-            bottomText={doughnutBarData[el].bottomText}
-            doughnutData={doughnutBarData[el].dData}
-            barData={doughnutBarData[el].bData}
-            text={doughnutBarData[el].texts}
-            colors={doughnutBarData[el].colors}
-            barchart={true}
-            doughnutChart={true}
-            key={el}
-          />
+          <ChartBlock key={el} {...doughnutBarData[el]} />
         ))}
       </SimpleGrid>
       <Flex px={[8, 20]}>

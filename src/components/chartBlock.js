@@ -8,14 +8,13 @@ function ChartBlock(props) {
   const colors = props.colors || ['#FF453C', '#FFBD35', '#13ABDC'];
   const texts = props.text || ['Critical', 'Medium', 'High'];
 
-  console.log(props.doughnutData);
   return (
     <Flex
       flexDirection="column"
       bg="white"
       p="4"
       border="1px solid black"
-      width={['', '100%']}
+      width="100%"
       height="100%"
       justify="space-between"
     >
@@ -39,17 +38,18 @@ function ChartBlock(props) {
             middleText={props.middleText}
           />
         )}
+        {props.barData && (
+          <BarChart width={200} height={200} data={props.barData} />
+        )}
 
-        {/* {props.barchart && ( */}
-        {/*   <BarChart width={200} height={200} data={props.barData} /> */}
-        {/* )} */}
-        {/*  */}
         {props.ConnectedScatterData && (
-          <ConnectedScatter
-            data={props.ConnectedScatterData}
-            width={props.csWidth || 250}
-            height={props.csHeight || 200}
-          />
+          <Flex alignSelf="flex-start" justify="flex-start">
+            <ConnectedScatter
+              data={props.ConnectedScatterData}
+              width={props.csWidth || 250}
+              height={props.csHeight || 200}
+            />
+          </Flex>
         )}
       </Flex>
       <Flex align="center" my="4" flexWrap="wrap">
