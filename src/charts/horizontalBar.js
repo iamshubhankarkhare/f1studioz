@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import React, { useRef, useEffect } from 'react';
 
-function BarChart({ width, height, data }) {
+function HBarChart({ width, height, data }) {
   const svgHeight = 200;
   const svgWidth = 200;
   const paddingLeft = 10;
@@ -12,18 +12,22 @@ function BarChart({ width, height, data }) {
 
   useEffect(() => {
     const maxValue = Math.max(...data);
-    const highestYValue = maxValue + maxValue / 3;
+    const highestXValue = maxValue + maxValue / 3;
+    const color = d3
+      .scaleOrdinal()
+      .range(['#00B59B', '#FFBE1A', '#FF453C', '#486CFB']);
+
     const svg = d3.select(svgRef.current);
-    const xScale = d3
+    const yScale = d3
       .scaleBand()
       .domain(dataSet.map((element, index) => index))
-      .range([paddingLeft, svgWidth - paddingRight])
+      .range([svgHeight, paddingBottom])
       .padding(0.5);
 
-    const yScale = d3
+    const xScale = d3
       .scaleLinear()
-      .domain([0, highestYValue])
-      .range([svgHeight - paddingBottom, 2]);
+      .domain([0, highestXValue])
+      .range([2, svgWidth - paddingRight]);
 
     const xAxis = d3.axisBottom(xScale).ticks(dataSet.length);
 
@@ -44,14 +48,15 @@ function BarChart({ width, height, data }) {
       .data(dataSet)
       .join('rect')
       .attr('class', 'bar')
-      .attr('transform', 'scale(1, -1)')
-      .attr('x', (value, index) => xScale(index))
-      .attr('y', -svgHeight + paddingBottom)
-      .attr('width', xScale.bandwidth() / 2)
+      .attr('x', paddingBottom)
+      .attr('y', (value, index) => yScale(index))
+      .attr('height', yScale.bandwidth() / 2)
       .transition()
       .duration(1000)
-      .attr('fill', '#005D9D')
-      .attr('height', (value) => svgHeight - yScale(value) - paddingBottom);
+      .attr('width', (value) => xScale(value) - paddingLeft)
+      .style('fill', function (d, i) {
+        return color(i);
+      });
   }, [dataSet]);
 
   return (
@@ -65,4 +70,4 @@ function BarChart({ width, height, data }) {
   );
 }
 
-export default BarChart;
+export default HBarChart;

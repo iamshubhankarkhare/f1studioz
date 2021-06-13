@@ -5,6 +5,7 @@ import ChartBlock from './components/chartBlock';
 import SecurityDataBlock from './components/securityDataBlock';
 import InfoBar from './components/infoBar';
 import GridCharts from './components/gridCharts';
+import HBarChart from './charts/horizontalBar';
 import {
   barLineData,
   doughnutBarData,
@@ -15,6 +16,7 @@ import {
 function App() {
   return (
     <Flex m={[4, 12]} direction="column">
+      <HBarChart height={200} width={200} data={[10, 20, 30, 20]} />
       <Flex align="center" justify="space-between" px={[8, 20]} my="4">
         <Text fontSize={['lg', '2xl']} fontWeight="700">
           Hello David!
