@@ -4,8 +4,6 @@ import React, { useRef, useEffect } from 'react';
 function ConnectedScatter({ width, height, data }) {
   const svgRef = React.useRef();
   useEffect(() => {
-    const width = 500;
-    const height = 300;
     const margin = 50;
     const duration = 250;
     const circleRadius = 6;
@@ -57,7 +55,9 @@ function ConnectedScatter({ width, height, data }) {
       .attr('fill', 'none')
       .attr('stroke', '#69b3a2')
       .attr('stroke-width', 1.5)
-      .attr('d', (d) => line(d.values))
+      .attr('d', (d) => {
+        return line(d.values);
+      })
       .attr('transform', `translate(30, 30)`);
 
     /* Add circles in the line */
@@ -101,7 +101,7 @@ function ConnectedScatter({ width, height, data }) {
     const xAxis = d3
       .axisBottom(xScale)
       .ticks(7)
-      .tickFormat(d3.timeFormat('%b'));
+      .tickFormat(d3.timeFormat(`${data[0].format}`));
     const yAxis = d3.axisLeft(yScale).ticks(7);
 
     svg
