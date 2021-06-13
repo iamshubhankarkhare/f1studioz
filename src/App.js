@@ -7,6 +7,7 @@ import Test from './charts/test';
 import ProgressWheel from './charts/progressWheel';
 import { SimpleGrid, Flex } from '@chakra-ui/react';
 import ChartBlock from './components/chartBlock';
+import SecurityDataBlock from './components/securityDataBlock';
 import { ConnectedScatterData, cs_d_block_data } from './chartData';
 
 const datas = [
@@ -15,18 +16,23 @@ const datas = [
   [25, 18, 27],
 ];
 function App() {
-  console.log(ConnectedScatterData.cs1);
   return (
-    <SimpleGrid columns={[1, 2]} p={['8', 20]} spacing="10">
-      {cs_d_block_data.map((el, i) => (
-        <ChartBlock
-          heading={el.heading}
-          bottomText={el.bottomText}
-          data={el.dData}
-          ConnectedScatterData={el.csData}
-        />
-      ))}
-    </SimpleGrid>
+    <>
+      <Flex px={[8, 20]}>
+        <SecurityDataBlock />
+      </Flex>
+      <SimpleGrid columns={[1, 2]} p={['8', 20]} spacing={[10, 10]}>
+        {cs_d_block_data.map((el, i) => (
+          <ChartBlock
+            key={i}
+            heading={el.heading}
+            bottomText={el.bottomText}
+            data={el.dData}
+            ConnectedScatterData={el.csData}
+          />
+        ))}
+      </SimpleGrid>
+    </>
   );
 }
 

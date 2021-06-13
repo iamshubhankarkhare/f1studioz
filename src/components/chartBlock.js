@@ -11,7 +11,7 @@ function ChartBlock(props) {
     <Flex
       flexDirection="column"
       bg="white"
-      p="8"
+      p="4"
       border="1px solid black"
       width={['', '100%']}
     >
@@ -22,22 +22,22 @@ function ChartBlock(props) {
         <DoughnutChart
           colors={colors}
           data={props.data}
-          width={250}
-          height={250}
+          width={200}
+          height={200}
           innerRadius={60}
           outerRadius={80}
         />
         {props.ConnectedScatterData && (
           <ConnectedScatter
             data={props.ConnectedScatterData}
-            width={300}
+            width={250}
             height={200}
           />
         )}
       </Flex>
       <Flex align="center" my="4">
         {texts.map((el, i) => (
-          <>
+          <Flex key={i}>
             <Box
               bg={colors[i]}
               width="15px"
@@ -46,7 +46,7 @@ function ChartBlock(props) {
               borderRadius="50%"
             />
             <Text mr="4">{el}</Text>
-          </>
+          </Flex>
         ))}
       </Flex>
       <hr />
