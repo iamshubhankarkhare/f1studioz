@@ -121,3 +121,53 @@ export const cs_d_block_data = [
       'The infrastructure that was down has increased by 10% since yesterday.',
   },
 ];
+
+export const securitylockData = [
+  { upper: '15', lower: 'Incidents' },
+  {
+    upper: '|',
+    lower: 'Patch Implant',
+  },
+
+  { upper: '4', lower: 'Network' },
+  { upper: '4', lower: 'Code' },
+  { upper: '4', lower: 'Web' },
+  { upper: '3', lower: 'Oss' },
+  {
+    upper: '|',
+    lower: 'Patch Implant',
+  },
+
+  {
+    upper: '2m 5s',
+    lower: 'MTTD',
+  },
+  {
+    upper: '3d4h5m',
+    lower: 'MTTR',
+  },
+  {
+    upper: '5h 30m',
+    lower: 'Patch Implant',
+  },
+];
+
+export const doughnutBarData = [
+  {
+    heading: 'Infrastructure Discovered',
+    dData: [40, 20, 35],
+    bData: [25, 20, 30],
+    bottomText: 'Oracle has the most number of critical issues',
+    colors: ['#90D4DD', '#7974CA', '#00A9E0', '#0059A1'],
+    texts: ['On Prem', 'AWS', 'Azure', 'Oracle'],
+  },
+  {
+    heading: 'Service Status',
+    dData: [10, 30, 35],
+    bData: [25, 20, 30],
+    bottomText:
+      'Number of database services that are down have decreased by 5%',
+    colors: ['#90D4DD', '#16B49B', '#005D9D'],
+    texts: ['App', 'Database', 'Web'],
+  },
+];

@@ -1,36 +1,8 @@
 import React, { useState } from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
+import { securitylockData } from '../chartData';
 
 function SecurityDataBlock() {
-  const data = [
-    { upper: '15', lower: 'Incidents' },
-    {
-      upper: '|',
-      lower: 'Patch Implant',
-    },
-
-    { upper: '4', lower: 'Network' },
-    { upper: '4', lower: 'Code' },
-    { upper: '4', lower: 'Web' },
-    { upper: '3', lower: 'Oss' },
-    {
-      upper: '|',
-      lower: 'Patch Implant',
-    },
-
-    {
-      upper: '2m 5s',
-      lower: 'MTTD',
-    },
-    {
-      upper: '3d4h5m',
-      lower: 'MTTR',
-    },
-    {
-      upper: '5h 30m',
-      lower: 'Patch Implant',
-    },
-  ];
   return (
     <Flex
       direction={['row', 'row']}
@@ -41,7 +13,7 @@ function SecurityDataBlock() {
       width="100%"
       py={[4, 8]}
     >
-      {data.map((text, i) => (
+      {securitylockData.map((text, i) => (
         <Flex key={i} p="2" justify="center" align="center">
           <Flex direction="column" align="center" justify="center">
             {text.upper === '|' ? (

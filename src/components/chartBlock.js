@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import DoughnutChart from '../charts/doughnutChart';
 import ConnectedScatter from '../charts/connectedScatter';
+import BarChart from '../charts/barChart';
 
 function ChartBlock(props) {
   const colors = props.colors || ['#FF453C', '#FFBD35', '#13ABDC'];
@@ -18,16 +19,27 @@ function ChartBlock(props) {
       <Text color="#2C2D2D" fontSize="2xl" fontWeight="700">
         {props.heading}
       </Text>
-      <Flex align="center" direction={['column', 'row']}>
-        <DoughnutChart
-          colors={colors}
-          data={props.data}
-          width={200}
-          height={200}
-          innerRadius={60}
-          outerRadius={80}
-        />
-        {props.ConnectedScatterData && (
+      <Flex
+        align="center"
+        direction={['column', 'row']}
+        justify="space-around"
+        py="4"
+      >
+        {props.doughnutChart && (
+          <DoughnutChart
+            colors={colors}
+            data={props.data}
+            width={200}
+            height={200}
+            innerRadius={65}
+            outerRadius={80}
+            middleText={props.middleText}
+          />
+        )}
+        {props.barchart && (
+          <BarChart width={200} height={200} data={props.barData} />
+        )}
+        {props.connectedScatter && props.ConnectedScatterData && (
           <ConnectedScatter
             data={props.ConnectedScatterData}
             width={250}
@@ -35,7 +47,7 @@ function ChartBlock(props) {
           />
         )}
       </Flex>
-      <Flex align="center" my="4">
+      <Flex align="center" my="4" flexWrap="wrap">
         {texts.map((el, i) => (
           <Flex key={i}>
             <Box

@@ -66,24 +66,25 @@ const DoughnutChart = (props) => {
       .attr('fill', (d, i) => colors[i])
       .on('mouseover', eventObj.mouseover)
       .on('mouseout', eventObj.mouseout);
+    if (props.middleText === true) {
+      group
+        .append('text')
+        .style('fill', 'black')
+        .style('font-size', '28px')
+        .style('font-weight', 'bold')
+        .attr('transform', 'translate(0,' + 10 + ')')
+        .attr('text-anchor', 'middle')
+        .html(props.data.reduce((a, b) => a + b));
 
-    group
-      .append('text')
-      .style('fill', 'black')
-      .style('font-size', '28px')
-      .style('font-weight', 'bold')
-      .attr('transform', 'translate(0,' + 10 + ')')
-      .attr('text-anchor', 'middle')
-      .html(props.data.reduce((a, b) => a + b));
-
-    group
-      .append('text')
-      .style('fill', 'black')
-      .style('font-size', '28px')
-      .style('font-weight', 'bold')
-      .attr('transform', 'translate(0,' + 40 + ')')
-      .attr('text-anchor', 'middle')
-      .html('Total');
+      group
+        .append('text')
+        .style('fill', 'black')
+        .style('font-size', '28px')
+        .style('font-weight', 'bold')
+        .attr('transform', 'translate(0,' + 40 + ')')
+        .attr('text-anchor', 'middle')
+        .html('Total');
+    }
   }, [props.data]);
 
   return (
