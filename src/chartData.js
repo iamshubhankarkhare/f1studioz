@@ -171,3 +171,22 @@ export const doughnutBarData = [
     texts: ['App', 'Database', 'Web'],
   },
 ];
+
+export const doughnutLineData = [
+  {
+    heading: 'Health Status',
+    doughnutData: [200, 20, 175],
+    bottomText: '10% Increase in Critical Issues',
+    colors: ['#00B69B', '#FF4333', '#FFBD35'],
+    texts: ['Good', 'Warning', 'Critical'],
+    doughnutChart: true,
+  },
+  {
+    heading: 'Critical Issue Trend ( This year )',
+    ConnectedScatterData: cs1,
+    bottomText: '69% Increase in Critical Issues in the last month',
+    colors: ['#006BD4', '#7972CD', '#90D4DD'],
+    texts: ['Budget', 'Spent', 'Forecast'],
+    connectedScatter: true,
+  },
+];

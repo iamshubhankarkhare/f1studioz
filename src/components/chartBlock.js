@@ -8,6 +8,7 @@ function ChartBlock(props) {
   const colors = props.colors || ['#FF453C', '#FFBD35', '#13ABDC'];
   const texts = props.text || ['Critical', 'Medium', 'High'];
 
+  console.log(props.doughnutData);
   return (
     <Flex
       flexDirection="column"
@@ -15,6 +16,8 @@ function ChartBlock(props) {
       p="4"
       border="1px solid black"
       width={['', '100%']}
+      height="100%"
+      justify="space-between"
     >
       <Text color="#2C2D2D" fontSize="2xl" fontWeight="700">
         {props.heading}
@@ -25,10 +28,10 @@ function ChartBlock(props) {
         justify="space-around"
         py="4"
       >
-        {props.doughnutChart && (
+        {props.doughnutData && (
           <DoughnutChart
             colors={colors}
-            data={props.data}
+            data={props.doughnutData}
             width={200}
             height={200}
             innerRadius={65}
@@ -36,14 +39,16 @@ function ChartBlock(props) {
             middleText={props.middleText}
           />
         )}
-        {props.barchart && (
-          <BarChart width={200} height={200} data={props.barData} />
-        )}
-        {props.connectedScatter && props.ConnectedScatterData && (
+
+        {/* {props.barchart && ( */}
+        {/*   <BarChart width={200} height={200} data={props.barData} /> */}
+        {/* )} */}
+        {/*  */}
+        {props.ConnectedScatterData && (
           <ConnectedScatter
             data={props.ConnectedScatterData}
-            width={250}
-            height={200}
+            width={props.csWidth || 250}
+            height={props.csHeight || 200}
           />
         )}
       </Flex>
