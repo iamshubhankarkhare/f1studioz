@@ -12,61 +12,20 @@ const datas = [
   [10, 40, 30, 20, 50, 10],
   [25, 18, 27],
 ];
-var i = 0;
-
-const data2 = [
+const ConnectedScatterData = [
   {
-    date: '27-Apr-12',
-    close: 67,
-  },
-  {
-    date: '26-Apr-12',
-    close: 89,
-  },
-  {
-    date: '25-Apr-12',
-    close: 99,
-  },
-  {
-    date: '18-Apr-12',
-    close: 44,
-  },
-  {
-    date: '17-Apr-12',
-    close: 54,
-  },
-  {
-    date: '16-Apr-12',
-    close: 58,
-  },
-  {
-    date: '13-Apr-12',
-    close: 65,
-  },
-  {
-    date: '30-Mar-12',
-    close: 99,
-  },
-  {
-    date: '29-Mar-12',
-    close: 60,
-  },
-  {
-    date: '28-Mar-12',
-    close: 61,
-  },
-  {
-    date: '27-Mar-12',
-    close: 68,
-  },
-  {
-    date: '26-Mar-12',
-    close: 69,
+    name: 'Regular',
+    values: [
+      { date: '2020-01-01', count: '20' },
+      { date: '2020-03-02', count: '40' },
+      { date: '2020-04-03', count: '80' },
+      { date: '2020-06-04', count: '30' },
+      { date: '2020-08-05', count: '50' },
+    ],
   },
 ];
 
 function App() {
-  const [data, setData] = useState([]);
 
   return (
     <div className="App">
@@ -79,8 +38,8 @@ function App() {
         innerRadius={80}
         outerRadius={100}
       />
-      {/* <ConnectedScatter data={data2} /> */}
-      <Test />
+      <ConnectedScatter data={ConnectedScatterData} />
+      {/* <Test /> */}
       <ProgressWheel radius="80" />
     </div>
   );
