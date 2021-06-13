@@ -5,29 +5,28 @@ import ConnectedScatter from './charts/connectedScatter';
 import DoughnutChart from './charts/doughnutChart';
 import Test from './charts/test';
 import ProgressWheel from './charts/progressWheel';
-import { Flex } from '@chakra-ui/react';
+import { SimpleGrid, Flex } from '@chakra-ui/react';
 import ChartBlock from './components/chartBlock';
-import { ConnectedScatterData } from './chartData';
+import { ConnectedScatterData, cs_d_block_data } from './chartData';
 
 const datas = [
   [10, 30, 40],
   [10, 40, 30, 20, 50, 10],
   [25, 18, 27],
 ];
-
 function App() {
   console.log(ConnectedScatterData.cs1);
   return (
-    <Flex justify="space-around">
-      <ChartBlock
-        data={datas[2]}
-        ConnectedScatterData={ConnectedScatterData.cs1}
-      />
-      <ChartBlock
-        data={datas[0]}
-        ConnectedScatterData={ConnectedScatterData.cs2}
-      />
-    </Flex>
+    <SimpleGrid columns={[1, 2]} p={['8', 20]} spacing="10">
+      {cs_d_block_data.map((el, i) => (
+        <ChartBlock
+          heading={el.heading}
+          bottomText={el.bottomText}
+          data={el.dData}
+          ConnectedScatterData={el.csData}
+        />
+      ))}
+    </SimpleGrid>
   );
 }
 

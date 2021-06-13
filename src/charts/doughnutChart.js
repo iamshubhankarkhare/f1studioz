@@ -2,7 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 
 const DoughnutChart = (props) => {
-  const colors = ['#FFBD35', '#16B49B', '#FF453C'];
+  const colors = props.colors;
+
+  colors.sort(() => Math.random() - 0.5);
   const ref = useRef(null);
   const createPie = d3
     .pie()
