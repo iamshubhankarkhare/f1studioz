@@ -5,6 +5,7 @@ import BarChart from './charts/barChart';
 import ConnectedScatter from './charts/connectedScatter';
 import DoughnutChart from './charts/doughnutChart';
 import Test from './charts/test';
+import ProgressWheel from './charts/progressWheel';
 
 const datas = [
   [10, 30, 40, 20],
@@ -80,6 +81,7 @@ function App() {
       />
       {/* <ConnectedScatter data={data2} /> */}
       <Test />
+      <ProgressWheel radius="80" />
     </div>
   );
 }
