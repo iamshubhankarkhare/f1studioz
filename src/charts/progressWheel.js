@@ -9,14 +9,12 @@ const ProgressWheel = (props) => {
 
     const colours = {
       fill: '#16B49B',
-      track: '#D8D8D8',
+      track: '#D2D7D8',
       text: '#2C2D2D',
-      stroke: '#FFFFFF',
     };
 
     const radius = props.radius;
     const border = 12;
-    const strokeSpacing = 4;
     const endAngle = Math.PI * 2;
     const formatText = d3.format('.0%');
     const boxSize = radius * 2;
@@ -46,17 +44,13 @@ const ProgressWheel = (props) => {
       .append('path')
       .attr('class', 'radial-progress__background')
       .attr('fill', colours.track)
-      .attr('stroke', colours.stroke)
-      .attr('stroke-width', strokeSpacing + 'px')
       .attr('d', circle.endAngle(endAngle));
 
     //Add colour fill
     const value = track
       .append('path')
       .attr('class', 'radial-progress__value')
-      .attr('fill', colours.fill)
-      .attr('stroke', colours.stroke)
-      .attr('stroke-width', strokeSpacing + 'px');
+      .attr('fill', colours.fill);
 
     //Add text value
     const numberText = track
@@ -67,6 +61,14 @@ const ProgressWheel = (props) => {
       .style('font-weight', 'bold')
       .attr('text-anchor', 'middle')
       .attr('dy', '.5rem');
+
+    track
+      .append('text')
+      .style('fill', '#646464')
+      .style('font-size', '18px')
+      .attr('transform', 'translate(0,' + 35 + ')')
+      .attr('text-anchor', 'middle')
+      .html('Health');
 
     function update(progress) {
       //update position of endAngle
@@ -87,7 +89,7 @@ const ProgressWheel = (props) => {
         setTimeout(iterate, 10);
       }
     })();
-  }, [props.data]);
+  }, [props.radius]);
 
   return <svg ref={ref}></svg>;
 };

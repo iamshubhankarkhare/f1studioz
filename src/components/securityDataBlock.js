@@ -11,6 +11,7 @@ function SecurityDataBlock() {
       justify="space-around"
       border="1px solid black"
       borderColor="#D8D8D8"
+      borderRadius="10px"
       width="100%"
       py={[4, 8]}
     >

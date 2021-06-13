@@ -15,6 +15,7 @@ function ChartBlock(props) {
       p="4"
       border="1px solid black"
       borderColor="#D8D8D8"
+      borderRadius="3px"
       width="100%"
       height="100%"
       justify="space-between"
