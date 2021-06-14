@@ -3,6 +3,7 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 import DoughnutChart from '../charts/doughnutChart';
 import ConnectedScatter from '../charts/connectedScatter';
 import BarChart from '../charts/barChart';
+import HBarChart from '../charts/horizontalBar';
 
 function ChartBlock(props) {
   const colors = props.colors || ['#FF453C', '#FFBD35', '#13ABDC'];
@@ -44,6 +45,9 @@ function ChartBlock(props) {
           <BarChart width={200} height={200} data={props.barData} />
         )}
 
+        {props.hBarData && (
+          <HBarChart height={200} width={200} data={props.hBarData} />
+        )}
         {props.ConnectedScatterData && (
           <Flex alignSelf="flex-start" justify="flex-start">
             <ConnectedScatter

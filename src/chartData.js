@@ -156,7 +156,7 @@ export const doughnutBarData = [
   {
     heading: 'Infrastructure Discovered',
     doughnutData: [40, 20, 35],
-    barData: [25, 20, 30],
+    hBarData: [10, 20, 30, 20],
     bottomText: 'Oracle has the most number of critical issues',
     colors: ['#90D4DD', '#7974CA', '#00A9E0', '#0059A1'],
     text: ['On Prem', 'AWS', 'Azure', 'Oracle'],
